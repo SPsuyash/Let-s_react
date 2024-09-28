@@ -6,7 +6,8 @@ function MyApp()
 {
   return(
     <div>
-      <h1>hello ji kya haal chal</h1></div>
+      <h1>hello ji kya haal chal</h1>
+      </div>
   )
 }
 //sahi nhi hai
