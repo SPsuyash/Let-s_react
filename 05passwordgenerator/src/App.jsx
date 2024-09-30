@@ -24,25 +24,32 @@ const passwordref=useRef(null)
 
 
   },[length,numberAllowed,charAllowed,setpassword])
+//default passwordcopy
+  const copyPasswordToClipboard = useCallback(()=>{
+    passwordref.current?.select();
+    // passwordref.current?.setSelectionRange(0,3)
+    window.navigator.clipboard.writeText(password)
+  },[password])
+
+  //on page run
   useEffect(()=>{
     passwordGenerator()},[length,numberAllowed,charAllowed,passwordGenerator])
-  
-    const copyPasswordToClipboard=useCallback
 
   return (
     <>
-     <div className='w-full max-w-23 mx-auto  rounded-lg px-5 my-32
+     <div className='w-full max-w-23 mx-auto  rounded-lg px-4 my-14
       text-black-500 bg-yellow-50'>
-        <h1 className='text-black text-center '>PASSWORD GENERATOR</h1>
-        <div className="flex shadow rounded-lg overflow-hidden mb-4">
+        <h1 className='text-black text-center'>PASSWORD GENERATOR</h1>
+        <div className="flex shadow rounded-lg overflow-hidden mb-9 my-4">
           <input type="text"
           value={password} 
-          className='outline-none w-full py-1 px-3 '
+          className='outline-none w-full py-1 px-6 '
           placeholder='password'
           readOnly
           ref={passwordref}
           />
-          <button onClick={copyPasswordToClipboard} className='outline-none bg-red-700 text-white px-3 py-0.5 shrink-0'>Copy</button>
+          <button onClick={copyPasswordToClipboard} className=
+          'outline-none bg-red-700 text-white px-3 py-0.5 shrink-0 hover:bg-sky-700 hover: px-2 py-1 '>Copy</button>
         </div>
         <div className='flex text-sm gap-x-2'>
           <div className='flex items-center gap-x-1'>
